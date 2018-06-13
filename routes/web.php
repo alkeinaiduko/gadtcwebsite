@@ -34,3 +34,4 @@ Route::prefix('admin')->group(function() {
 
 // ADMIN POSTS CONTROLLERS
 Route::post('/postann', 'AdminController@store');
+Route::post('/postbulletin', 'AdminController@storeBulletin');

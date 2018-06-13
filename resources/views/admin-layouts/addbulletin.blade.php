@@ -32,28 +32,29 @@
 		<section id="main-content">
 			<div class="admin-main-content-container">
 				<div class="admin-main-content">
-					<form>
+					<form method="POST" action="/postbulletin">
+						@csrf
 						<fieldset class="uk-fieldset">
 							<legend class="uk-legend">Add New Bulletin</legend>
 
 							<div id="form-holder">
 								<div class="uk-margin ">
-									<input class="uk-input" type="text" placeholder="Title">
+									<input class="uk-input" type="text" placeholder="Title" name="title">
 								</div>
 
-								<input class="uk-input" type="text" placeholder="Who">
+								<input class="uk-input" type="text" placeholder="Who" name="who">
 
-								<input class="uk-input" type="text" placeholder="What">
+								<input class="uk-input" type="text" placeholder="What" name="what">
 								
 								<div class="uk-margin">
-									<input class="uk-input" type="text" placeholder="Where">
-									<input class="uk-input" type="date" placeholder="When">
+									<input class="uk-input" type="text" placeholder="Where" name="where">
+									<input class="uk-input" type="time" placeholder="When" name="when">
 								</div>
 
 							</div>
 
 							<div class="uk-margin">
-								<textarea class="uk-textarea" rows="5" placeholder="Description"></textarea>
+								<textarea class="uk-textarea" rows="5" placeholder="Description" name="description"></textarea>
 							</div>
 
 							<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
@@ -62,6 +63,11 @@
 
 						</fieldset>
 					</form>
+					@if(session('success'))
+						<div class="alert alert-success">
+							{{session('success')}}
+						</div>
+					@endif
 				</div>
 			</div>
 		</section>

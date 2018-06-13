@@ -15,6 +15,12 @@ class CreateBulletinsTable extends Migration
     {
         Schema::create('bulletins', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('who');
+            $table->string('what');
+            $table->string('where');
+            $table->string('when');
+            $table->text('description');
             $table->timestamps();
         });
     }
