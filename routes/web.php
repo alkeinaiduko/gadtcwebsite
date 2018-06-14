@@ -26,4 +26,12 @@ Route::prefix('admin')->group(function() {
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
 	Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+	Route::get('/add-new-announcement', 'AdminController@showAddAnnouncementPage');
+	Route::get('/add-new-bulletin', 'AdminController@showAddBulletinPage');
+
 });
+
+
+// ADMIN POSTS CONTROLLERS
+Route::post('/postann', 'AdminController@store');
+Route::post('/postbulletin', 'AdminController@storeBulletin');
